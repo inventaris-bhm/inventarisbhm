@@ -17,23 +17,46 @@
       background-color: #fff;
       padding: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
     }
     h1 {
       text-align: center;
       color: #333;
+      font-size: 2em;
     }
     .details {
+      margin-top: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
       margin-top: 20px;
     }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    td {
+      background-color: #fafafa;
+    }
     img {
-      width: 300px; /* Ukuran default gambar */
+      width: 250px;
       height: auto;
       display: block;
       margin: 0 auto;
-      cursor: pointer; /* Mengubah cursor menjadi pointer untuk menunjukkan gambar dapat diklik */
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
     }
-    
-    /* Style untuk modal */
+    img:hover {
+      transform: scale(1.05); /* Efek zoom saat hover */
+    }
+
     .modal {
       display: none;
       position: fixed;
@@ -42,7 +65,7 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0, 0, 0, 0.7);
       justify-content: center;
       align-items: center;
     }
@@ -102,31 +125,82 @@
       if (id === "2103100000095") {
         detailsDiv.innerHTML = `
           <h2>PABX TES 824 MERK PANASONIC</h2>
-          <p><strong>Nomor Inventaris:</strong> 2103100000095</p>
-          <p><strong>Jumlah:</strong> 1 Unit</p>
-          <p><strong>Harga Pembelian:</strong> Rp 3.100.000</p>
-          <p><strong>Tanggal Pembelian:</strong> 11/11/2016</p>
-          <p><strong>Lokasi:</strong> LANTAI 1 (Ruang Operasional)</p>
+          <table>
+            <tr>
+              <th>Nomor Inventaris</th>
+              <td>2103100000095</td>
+            </tr>
+            <tr>
+              <th>Jumlah</th>
+              <td>1 Unit</td>
+            </tr>
+            <tr>
+              <th>Harga Pembelian</th>
+              <td>Rp 3.100.000</td>
+            </tr>
+            <tr>
+              <th>Tanggal Pembelian</th>
+              <td>11/11/2016</td>
+            </tr>
+            <tr>
+              <th>Lokasi</th>
+              <td>LANTAI 1 (Ruang Operasional)</td>
+            </tr>
+          </table>
           <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img1.jpeg" alt="PABX TES 824 MERK PANASONIC" onclick="openModal(this)">
         `;
       } else if (id === "2109100000036") {
         detailsDiv.innerHTML = `
           <h2>HANDLE LISTRIK 63A</h2>
-          <p><strong>Nomor Inventaris:</strong> 2109100000036</p>
-          <p><strong>Jumlah:</strong> 1 Unit</p>
-          <p><strong>Harga Pembelian:</strong> Rp 1.675.000</p>
-          <p><strong>Tanggal Pembelian:</strong> 20/11/2007</p>
-          <p><strong>Lokasi:</strong> GUDANG</p>
+          <table>
+            <tr>
+              <th>Nomor Inventaris</th>
+              <td>2109100000036</td>
+            </tr>
+            <tr>
+              <th>Jumlah</th>
+              <td>1 Unit</td>
+            </tr>
+            <tr>
+              <th>Harga Pembelian</th>
+              <td>Rp 1.675.000</td>
+            </tr>
+            <tr>
+              <th>Tanggal Pembelian</th>
+              <td>20/11/2007</td>
+            </tr>
+            <tr>
+              <th>Lokasi</th>
+              <td>GUDANG</td>
+            </tr>
+          </table>
           <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img2.jpeg" alt="HANDLE LISTRIK 63A" onclick="openModal(this)">
         `;
       } else if (id === "2103100000026") {
         detailsDiv.innerHTML = `
           <h2>MONITOR FLATRON 16" (BO1&CS1)</h2>
-          <p><strong>Nomor Inventaris:</strong> 2103100000026</p>
-          <p><strong>Jumlah:</strong> 1 Unit</p>
-          <p><strong>Harga Pembelian:</strong> Rp 2.247.000</p>
-          <p><strong>Tanggal Pembelian:</strong> 23/12/2010</p>
-          <p><strong>Lokasi:</strong> RUANG OPERASIONAL DAN BANKING HALL (AKUNTING DAN CS)</p>
+          <table>
+            <tr>
+              <th>Nomor Inventaris</th>
+              <td>2103100000026</td>
+            </tr>
+            <tr>
+              <th>Jumlah</th>
+              <td>1 Unit</td>
+            </tr>
+            <tr>
+              <th>Harga Pembelian</th>
+              <td>Rp 2.247.000</td>
+            </tr>
+            <tr>
+              <th>Tanggal Pembelian</th>
+              <td>23/12/2010</td>
+            </tr>
+            <tr>
+              <th>Lokasi</th>
+              <td>RUANG OPERASIONAL DAN BANKING HALL (AKUNTING DAN CS)</td>
+            </tr>
+          </table>
           <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img3.jpeg" alt="MONITOR FLATRON 16" onclick="openModal(this)">
         `;
       } else {
