@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 80%;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .details {
+      margin-top: 20px;
+    }
+    img {
+      width: 300px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Inventory Details</h1>
+
+    <div id="details" class="details">
+      <!-- Rincian inventaris akan dimuat di sini menggunakan JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    function getUrlParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    function loadInventoryDetails() {
+      const id = getUrlParameter('id'); // Ambil 'id' dari URL
+      const detailsDiv = document.getElementById('details');
+      
+      // Tampilkan rincian berdasarkan nomor inventaris
+      if (id === "2103100000095") {
+        detailsDiv.innerHTML = `
+          <h2>PABX TES 824 MERK PANASONIC</h2>
+          <p><strong>Nomor Inventaris:</strong> 2103100000095</p>
+          <p><strong>Jumlah:</strong> 1 Unit</p>
+          <p><strong>Harga Pembelian:</strong> Rp 3.100.000</p>
+          <p><strong>Tanggal Pembelian:</strong> 11/11/2016</p>
+          <p><strong>Lokasi:</strong> LANTAI 1 (Ruang Operasional)</p>
+          <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img1.jpeg" alt="PABX TES 824 MERK PANASONIC">
+        `;
+      } else if (id === "2109100000036") {
+        detailsDiv.innerHTML = `
+          <h2>HANDLE LISTRIK 63A</h2>
+          <p><strong>Nomor Inventaris:</strong> 2109100000036</p>
+          <p><strong>Jumlah:</strong> 1 Unit</p>
+          <p><strong>Harga Pembelian:</strong> Rp 1.675.000</p>
+          <p><strong>Tanggal Pembelian:</strong> 20/11/2007</p>
+          <p><strong>Lokasi:</strong> GUDANG</p>
+          <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img2.jpeg" alt="HANDLE LISTRIK 63A">
+        `;
+      } else if (id === "2103100000026") {
+        detailsDiv.innerHTML = `
+          <h2>MONITOR FLATRON 16" (BO1&CS1)</h2>
+          <p><strong>Nomor Inventaris:</strong> 2103100000026</p>
+          <p><strong>Jumlah:</strong> 1 Unit</p>
+          <p><strong>Harga Pembelian:</strong> Rp 2.247.000</p>
+          <p><strong>Tanggal Pembelian:</strong> 23/12/2010</p>
+          <p><strong>Lokasi:</strong> RUANG OPERASIONAL DAN BANKING HALL (AKUNTING DAN CS)</p>
+          <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img3.jpeg" alt="MONITOR FLATRON 16">
+        `;
+      } else {
+        detailsDiv.innerHTML = "<p>Data inventaris tidak ditemukan.</p>";
+      }
+    }
+
+    // Panggil fungsi untuk memuat rincian ketika halaman dimuat
+    window.onload = loadInventoryDetails;
+  </script>
+
+</body>
+</html>
