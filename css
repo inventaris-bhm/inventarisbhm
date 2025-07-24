@@ -6,75 +6,7 @@ body {
   background-color: #f4f4f4;
 }
 
-.container {
-  width: 80%;
-  margin: 50px auto;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-}
-
-.search-box {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-input[type="text"] {
-  padding: 10px;
-  width: 80%;
-  max-width: 400px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 5px;
-  margin-left: 10px;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  display: none; /* Tabel disembunyikan awalnya */
-}
-
-th, td {
-  padding: 12px;
-  text-align: left;
-  border: 1px solid #ddd;
-}
-
-th {
-  background-color: #f2f2f2;
-}
-
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-img {
-  width: 100px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+/* ... kode CSS lainnya ... */
 
 /* Media Query untuk Mobile Devices */
 @media (max-width: 768px) {
@@ -94,19 +26,36 @@ img {
   img {
     width: 80px; /* Mengurangi ukuran gambar agar tidak terlalu besar pada perangkat kecil */
   }
+
+  .search-box {
+    display: flex;
+    flex-direction: column; /* Membuat input dan tombol menjadi kolom */
+    align-items: center;
+  }
+
+  button {
+    width: 100%; /* Tombol pencarian mengambil lebar penuh */
+    margin-top: 10px;
+  }
+
+  table {
+    overflow-x: auto; /* Menambahkan scroll horizontal jika tabel terlalu lebar */
+    display: block;
+  }
 }
 
 @media (max-width: 480px) {
   h1 {
-    font-size: 24px; /* Mengurangi ukuran font judul untuk mobile */
+    font-size: 20px; /* Mengurangi ukuran font judul untuk perangkat kecil */
   }
 
   table {
-    font-size: 12px; /* Ukuran font yang lebih kecil lagi untuk perangkat lebih kecil */
+    font-size: 10px; /* Ukuran font lebih kecil */
+    white-space: nowrap; /* Agar teks dalam tabel tidak pecah di layar kecil */
   }
 
   th, td {
-    padding: 8px; /* Mengurangi padding di tabel untuk tampilan mobile */
+    padding: 5px; /* Padding lebih kecil */
   }
 
   img {
