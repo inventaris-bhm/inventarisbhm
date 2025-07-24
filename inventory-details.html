@@ -26,10 +26,47 @@
       margin-top: 20px;
     }
     img {
-      width: 300px;
+      width: 300px; /* Ukuran default gambar */
       height: auto;
       display: block;
       margin: 0 auto;
+      cursor: pointer; /* Mengubah cursor menjadi pointer untuk menunjukkan gambar dapat diklik */
+    }
+    
+    /* Style untuk modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .modal img {
+      width: 100%;
+      height: auto;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -40,6 +77,14 @@
 
     <div id="details" class="details">
       <!-- Rincian inventaris akan dimuat di sini menggunakan JavaScript -->
+    </div>
+  </div>
+
+  <!-- Modal untuk memperbesar gambar -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="Gambar Inventaris">
     </div>
   </div>
 
@@ -62,7 +107,7 @@
           <p><strong>Harga Pembelian:</strong> Rp 3.100.000</p>
           <p><strong>Tanggal Pembelian:</strong> 11/11/2016</p>
           <p><strong>Lokasi:</strong> LANTAI 1 (Ruang Operasional)</p>
-          <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img1.jpeg" alt="PABX TES 824 MERK PANASONIC">
+          <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img1.jpeg" alt="PABX TES 824 MERK PANASONIC" onclick="openModal(this)">
         `;
       } else if (id === "2109100000036") {
         detailsDiv.innerHTML = `
@@ -72,7 +117,7 @@
           <p><strong>Harga Pembelian:</strong> Rp 1.675.000</p>
           <p><strong>Tanggal Pembelian:</strong> 20/11/2007</p>
           <p><strong>Lokasi:</strong> GUDANG</p>
-          <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img2.jpeg" alt="HANDLE LISTRIK 63A">
+          <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img2.jpeg" alt="HANDLE LISTRIK 63A" onclick="openModal(this)">
         `;
       } else if (id === "2103100000026") {
         detailsDiv.innerHTML = `
@@ -82,11 +127,25 @@
           <p><strong>Harga Pembelian:</strong> Rp 2.247.000</p>
           <p><strong>Tanggal Pembelian:</strong> 23/12/2010</p>
           <p><strong>Lokasi:</strong> RUANG OPERASIONAL DAN BANKING HALL (AKUNTING DAN CS)</p>
-          <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img3.jpeg" alt="MONITOR FLATRON 16">
+          <img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img3.jpeg" alt="MONITOR FLATRON 16" onclick="openModal(this)">
         `;
       } else {
         detailsDiv.innerHTML = "<p>Data inventaris tidak ditemukan.</p>";
       }
+    }
+
+    // Membuka modal gambar
+    function openModal(imgElement) {
+      var modal = document.getElementById("imageModal");
+      var modalImage = document.getElementById("modalImage");
+      modal.style.display = "flex"; // Menampilkan modal
+      modalImage.src = imgElement.src; // Menetapkan gambar yang diklik ke modal
+    }
+
+    // Menutup modal
+    function closeModal() {
+      var modal = document.getElementById("imageModal");
+      modal.style.display = "none"; // Menyembunyikan modal
     }
 
     // Panggil fungsi untuk memuat rincian ketika halaman dimuat
