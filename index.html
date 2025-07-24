@@ -1,164 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inventory Search</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-    .container {
-      width: 80%;
-      margin: 50px auto;
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-    .search-box {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    input[type="text"] {
-      padding: 10px;
-      width: 80%;
-      max-width: 400px;
-      font-size: 16px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      background-color: #4CAF50;
-      color: white;
-      border-radius: 5px;
-      margin-left: 10px;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      display: none; /* Tabel disembunyikan awalnya */
-    }
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border: 1px solid #ddd;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <h1>Inventory Search</h1>
-    
-    <!-- Kolom Pencarian -->
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Cari nomor inventaris..." onkeyup="searchInventory()">
-      <button onclick="searchInventory()">Cari</button>
-    </div>
-
-    <!-- Tabel Inventaris -->
-    <table id="inventoryTable">
-      <thead>
-        <tr>
-          <th>Nomor Inventaris</th>
-          <th>Nama Inventaris</th>
-          <th>Jumlah</th>
-          <th>Harga Pembelian</th>
-          <th>Tanggal Pembelian</th>
-          <th>Lokasi</th>
-          <th>Gambar</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2103100000095</td>
-          <td>PABX TES 824 MERK PANASONIC</td>
-          <td>1 Unit</td>
-          <td>Rp 3.100.000</td>
-          <td>11/11/2016</td>
-          <td>LANTAI 1 (Ruang Operasional)</td>
-          <td><img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img1.jpeg" alt="PABX TES 824 MERK PANASONIC" width="100"></td>
-        </tr>
-        <tr>
-          <td>2109100000036</td>
-          <td>HANDLE LISTRIK 63A</td>
-          <td>1 Unit</td>
-          <td>Rp 1.675.000</td>
-          <td>20/11/2007</td>
-          <td>GUDANG</td>
-          <td><img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img2.jpeg" alt="HANDLE LISTRIK 63A" width="100"></td>
-        </tr>
-        <tr>
-          <td>2103100000026</td>
-          <td>MONITOR FLATRON 16" (BO1&CS1)</td>
-          <td>1 Unit</td>
-          <td>Rp 2.247.000</td>
-          <td>23/12/2010</td>
-          <td>RUANG OPERASIONAL DAN BANKING HALL (AKUNTING DAN CS)</td>
-          <td><img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img3.jpeg" alt="MONITOR FLATRON 16" width="100"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <script>
-    function searchInventory() {
-      var input = document.getElementById("searchInput");
-      var filter = input.value.toUpperCase();
-      var table = document.getElementById("inventoryTable");
-      var rows = table.getElementsByTagName("tr");
-
-      // Tampilkan tabel jika input tidak kosong
-      if (filter.length > 0) {
-        table.style.display = "table"; // Menampilkan tabel ketika ada input
-      } else {
-        table.style.display = "none"; // Menyembunyikan tabel jika input kosong
-      }
-
-      // Loop untuk memeriksa setiap baris tabel
-      for (var i = 1; i < rows.length; i++) {
-        var cells = rows[i].getElementsByTagName("td");
-        var match = false;
-
-        // Cek apakah ada kecocokan dengan nomor inventaris
-        if (cells.length > 0) {
-          var nomorInventaris = cells[0].textContent || cells[0].innerText;
-          // Periksa apakah nomor inventaris cocok dengan pencarian, tanpa memperhatikan huruf besar/kecil
-          if (nomorInventaris.toUpperCase().includes(filter)) {
-            match = true;
-          }
-        }
-
-        // Tampilkan atau sembunyikan baris berdasarkan kecocokan
-        if (match) {
-          rows[i].style.display = ""; // Menampilkan baris jika ada kecocokan
-        } else {
-          rows[i].style.display = "none"; // Menyembunyikan baris jika tidak ada kecocokan
-        }
-      }
-    }
-  </script>
-
-</body>
-</html>
+<table id="inventoryTable">
+  <thead>
+    <tr>
+      <th>Nomor Inventaris</th>
+      <th>Nama Inventaris</th>
+      <th>Jumlah</th>
+      <th>Harga Pembelian</th>
+      <th>Tanggal Pembelian</th>
+      <th>Lokasi</th>
+      <th>Gambar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2103100000095</td>
+      <td>PABX TES 824 MERK PANASONIC</td>
+      <td>1 Unit</td>
+      <td>Rp 3.100.000</td>
+      <td>11/11/2016</td>
+      <td>LANTAI 1 (Ruang Operasional)</td>
+      <td><img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img1.jpeg" alt="PABX TES 824 MERK PANASONIC" width="100"></td>
+    </tr>
+    <tr>
+      <td>2109100000036</td>
+      <td>HANDLE LISTRIK 63A</td>
+      <td>1 Unit</td>
+      <td>Rp 1.675.000</td>
+      <td>20/11/2007</td>
+      <td>GUDANG</td>
+      <td><img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img2.jpeg" alt="HANDLE LISTRIK 63A" width="100"></td>
+    </tr>
+    <tr>
+      <td>2103100000026</td>
+      <td>MONITOR FLATRON 16" (BO1&CS1)</td>
+      <td>1 Unit</td>
+      <td>Rp 2.247.000</td>
+      <td>23/12/2010</td>
+      <td>RUANG OPERASIONAL DAN BANKING HALL (AKUNTING DAN CS)</td>
+      <td><img src="https://raw.githubusercontent.com/inventaris-bhm/inventarisbhm/main/img/img3.jpeg" alt="MONITOR FLATRON 16" width="100"></td>
+    </tr>
+  </tbody>
+</table>
