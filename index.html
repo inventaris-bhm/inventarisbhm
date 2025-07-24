@@ -51,6 +51,7 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
+      display: none; /* Tabel disembunyikan awalnya */
     }
     th, td {
       padding: 12px;
@@ -78,7 +79,7 @@
     
     <!-- Kolom Pencarian -->
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Cari nomor inventaris..." onkeyup="searchInventory()">
+      <input type="text" id="searchInput" placeholder="Cari nomor inventaris atau nama inventaris..." onkeyup="searchInventory()">
       <button onclick="searchInventory()">Cari</button>
     </div>
 
@@ -146,11 +147,13 @@
         var cells = rows[i].getElementsByTagName("td");
         var match = false;
 
-        // Cek apakah ada kecocokan dengan nomor inventaris di kolom pertama
+        // Cek apakah ada kecocokan dengan nomor inventaris atau nama inventaris
         if (cells.length > 0) {
-          var nomorInventaris = cells[0].textContent || cells[0].innerText; // Mendapatkan teks nomor inventaris
-          // Pastikan pencarian cocok dengan nomor inventaris
-          if (nomorInventaris.toUpperCase().includes(filter)) {
+          var nomorInventaris = cells[0].textContent || cells[0].innerText;
+          var namaInventaris = cells[1].textContent || cells[1].innerText;
+
+          // Periksa apakah nomor inventaris atau nama inventaris cocok dengan pencarian
+          if (nomorInventaris.toUpperCase().includes(filter) || namaInventaris.toUpperCase().includes(filter)) {
             match = true; // Jika cocok, set match menjadi true
           }
         }
