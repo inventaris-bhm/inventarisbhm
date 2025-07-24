@@ -1,8 +1,8 @@
       // Tampilkan tabel jika input tidak kosong
       if (filter.length > 0) {
-        table.style.display = "table";
+        table.style.display = "table"; // Menampilkan tabel ketika ada input
       } else {
-        table.style.display = "none";
+        table.style.display = "none"; // Menyembunyikan tabel jika input kosong
       }
 
       // Loop untuk memeriksa setiap baris tabel
@@ -21,10 +21,12 @@
 
         // Tampilkan atau sembunyikan baris berdasarkan kecocokan
         if (match) {
-          rows[i].style.display = "";
+          rows[i].style.display = ""; // Menampilkan baris jika ada kecocokan
         } else {
-          rows[i].style.display = "none";
+          rows[i].style.display = "none"; // Menyembunyikan baris jika tidak ada kecocokan
         }
       }
     }
   </script>
+</body>
+</html>
