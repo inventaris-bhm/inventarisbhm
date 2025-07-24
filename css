@@ -1,7 +1,115 @@
-repository-name/
-  ├── img/
-  │   ├── img1.jpeg
-  │   ├── img2.jpeg
-  │   └── img3.jpeg
-  ├── index.html
-  └── ...
+/* CSS Umum untuk Website */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.search-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  display: none; /* Tabel disembunyikan awalnya */
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+img {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Media Query untuk Mobile Devices */
+@media (max-width: 768px) {
+  .container {
+    width: 95%; /* Lebar kontainer lebih lebar pada layar kecil */
+    padding: 15px;
+  }
+
+  input[type="text"], button {
+    width: 100%; /* Input dan tombol akan mengambil lebar penuh */
+  }
+
+  table {
+    font-size: 14px; /* Ukuran font yang lebih kecil untuk mobile */
+  }
+
+  img {
+    width: 80px; /* Mengurangi ukuran gambar agar tidak terlalu besar pada perangkat kecil */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px; /* Mengurangi ukuran font judul untuk mobile */
+  }
+
+  table {
+    font-size: 12px; /* Ukuran font yang lebih kecil lagi untuk perangkat lebih kecil */
+  }
+
+  th, td {
+    padding: 8px; /* Mengurangi padding di tabel untuk tampilan mobile */
+  }
+
+  img {
+    width: 60px; /* Ukuran gambar lebih kecil pada layar sangat kecil */
+  }
+}
